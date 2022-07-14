@@ -1,0 +1,26 @@
+---
+- name: 'Create service path'
+  file:
+    path:  '{{ es_comrade_service_path }}'
+    owner: 'dockremap'
+    group: 'docker'
+    state: 'directory'
+    mode:  0750
+
+- name: 'Create config path'
+  file:
+    path:  '{{ es_comrade_cont_vol }}'
+    owner: 'dockremap'
+    group: 'docker'
+    state: 'directory'
+    mode:  0750
+
+- name: 'Create cluster config files'
+  template:
+    src:   'cluster.json.j2'
+    dest:  '{{ es_comrade_cont_vol }}/{{ item.key }}.json'
+    owner: 'dockremap'
+    group: 'docker'
+    mode:  0644
+  with_dict: '{{ es_comrade_clusters }}'
+  register: clusters_config_files

@@ -1,0 +1,16 @@
+---
+version: '3.7'
+services:
+  app:
+    container_name: '{{ es_comrade_cont_name }}'
+    image: '{{ es_comrade_cont_image }}'
+    restart: always
+    ports:
+      - '{{ es_comrade_cont_addr }}:{{ es_comrade_cont_port }}:{{ es_comrade_cont_port }}'
+    volumes:
+      - '{{ es_comrade_cont_vol }}:/app/comrade/clusters'
+    environment:
+      COMRADE_CLUSTERS_DIR: '/app/comrade/clusters'
+      COMRADE_DEBUG: '{{ es_comrade_cont_debug }}'
+      COMRADE_PORT: '{{ es_comrade_cont_port }}'
+      COMRADE_HOST: '0.0.0.0'

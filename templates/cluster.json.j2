@@ -1,0 +1,10 @@
+{
+    "name": "{{ item.key }}",
+    "params": {
+        "hosts": [
+{% for node in item.value %}
+            "{{ node | mandatory }}"{{ loop.last | ternary("", ",") }}
+{% endfor %}
+        ]
+    }
+}

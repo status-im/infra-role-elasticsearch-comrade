@@ -1,0 +1,21 @@
+---
+es_comrade_service_name: 'elasticsearch-comrade'
+es_comrade_service_path: '/docker/{{ es_comrade_service_name }}'
+es_comrade_compose_path: '{{ es_comrade_service_path }}/docker-compose.yml'
+
+# Cluster configuration
+es_comrade_clusters: {}
+#    cluster-a: ['host-01.a.prod:9200', 'host-02.a.prod:9200']
+#    cluster-b: ['host-01.b.prod:9200', 'host-02.b.prod:9200']
+
+es_comrade_cont_name: '{{ es_comrade_service_name }}'
+es_comrade_cont_image: 'mosheza/elasticsearch-comrade:v1.2.0'
+es_comrade_cont_port: 8880
+es_comrade_cont_addr: '0.0.0.0'
+es_comrade_cont_debug: false
+es_comrade_cont_vol: '/docker/{{ es_comrade_cont_name }}/conf'
+
+# general container management
+compose_state: 'present'
+compose_recreate: 'smart'
+compose_restart: false

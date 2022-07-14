@@ -1,0 +1,16 @@
+---
+- name: Create Consul service definition
+  include_role: name=consul-service
+  vars:
+    consul_config_name: '{{ es_comrade_service_name }}'
+    consul_services:
+      - id:   '{{ es_comrade_service_name }}'
+        name: '{{ es_comrade_service_name }}'
+        tags: ['elasticsearch', 'management']
+        port: '{{ es_comrade_cont_port }}'
+        address: '{{ ansible_local.wireguard.vpn_ip }}'
+        checks:
+          - id: '{{ es_comrade_service_name }}-health'
+            name: 'ElasticSearch Comrade Healthcheck'
+            type: 'http'
+            http: 'http://localhost:{{ es_comrade_cont_port }}/api/v1/clients'
