@@ -1,5 +1,9 @@
 ---
 version: '3.7'
+networks:
+  default:
+    name: '{{ es_comrade_cont_network_name }}'
+
 services:
   app:
     container_name: '{{ es_comrade_cont_name }}'

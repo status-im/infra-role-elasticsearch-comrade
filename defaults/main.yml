@@ -10,6 +10,7 @@ es_comrade_clusters: {}
 
 es_comrade_cont_name: '{{ es_comrade_service_name }}'
 es_comrade_cont_image: 'mosheza/elasticsearch-comrade:v1.2.0'
+es_comrade_cont_network_name: '{{ es_comrade_service_name }}'
 es_comrade_cont_port: 8880
 es_comrade_cont_addr: '0.0.0.0'
 es_comrade_cont_debug: false
