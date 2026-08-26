@@ -5,8 +5,12 @@ es_comrade_compose_path: '{{ es_comrade_service_path }}/docker-compose.yml'
 
 # Cluster configuration
 es_comrade_clusters: {}
-#    cluster-a: ['host-01.a.prod:9200', 'host-02.a.prod:9200']
-#    cluster-b: ['host-01.b.prod:9200', 'host-02.b.prod:9200']
+#    cluster-a:
+#      hosts: ['host-01.a.prod:9200', 'host-02.a.prod:9200']
+#    cluster-b:
+#      hosts: ['host-01.b.prod:9200', 'host-02.b.prod:9200']
+#      user: 'secret_es_username'
+#      pass: 'secret_es_password'
 
 es_comrade_cont_name: '{{ es_comrade_service_name }}'
 es_comrade_cont_image: 'mosheza/elasticsearch-comrade:v1.2.0'

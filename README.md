@@ -11,6 +11,10 @@ You can find the documentation [here](https://moshe-1.gitbook.io/comrade/).
 The only settings necessary to set are:
 ```yaml
 es_comrade_clusters:
-    cluster-a: ['host-01.a.prod:9200', 'host-02.a.prod:9200']
-    cluster-b: ['host-01.b.prod:9200', 'host-02.b.prod:9200']
+    cluster-a:
+      hosts: ['host-01.a.prod:9200', 'host-02.a.prod:9200']
+    cluster-b:
+      hosts: ['host-01.b.prod:9200', 'host-02.b.prod:9200']
+      user: 'secret_es_username'
+      pass: 'secret_es_password'
 ```

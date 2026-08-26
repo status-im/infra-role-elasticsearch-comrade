@@ -1,8 +1,14 @@
 {
     "name": "{{ item.key }}",
     "params": {
+{% if item.value.user is defined and item.value.pass is defined %}
+        "http_auth": [
+            "{{ item.value.user }}",
+            "{{ item.value.pass }}"
+        ],
+{% endif %}
         "hosts": [
-{% for node in item.value %}
+{% for node in item.value.hosts %}
             "{{ node | mandatory }}"{{ loop.last | ternary("", ",") }}
 {% endfor %}
         ]
