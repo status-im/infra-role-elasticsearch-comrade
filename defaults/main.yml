@@ -21,6 +21,6 @@ es_comrade_cont_debug: false
 es_comrade_cont_vol: '/docker/{{ es_comrade_cont_name }}/conf'
 
 # general container management
+compose_recreate: 'auto'
 compose_state: 'present'
-compose_recreate: 'smart'
-compose_restart: false
+compose_pull: 'always'
