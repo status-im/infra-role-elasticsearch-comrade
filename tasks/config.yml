@@ -5,7 +5,7 @@
     owner: 'dockremap'
     group: 'docker'
     state: 'directory'
-    mode:  0750
+    mode:  '0o750'
 
 - name: 'Create config path'
   file:
@@ -13,7 +13,7 @@
     owner: 'dockremap'
     group: 'docker'
     state: 'directory'
-    mode:  0750
+    mode:  '0o750'
 
 - name: 'Create cluster config files'
   template:
@@ -21,6 +21,6 @@
     dest:  '{{ es_comrade_cont_vol }}/{{ item.key }}.json'
     owner: 'dockremap'
     group: 'docker'
-    mode:  0644
+    mode:  '0o644'
   with_dict: '{{ es_comrade_clusters }}'
   register: clusters_config_files
