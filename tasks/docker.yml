@@ -10,6 +10,6 @@
 - name: 'Create containers'
   community.docker.docker_compose_v2:
     project_src: '{{ es_comrade_service_path }}'
-    recreate:    '{{ compose_recreate }}'
-    state:       '{{ clusters_config_files.changed | ternary("restarted", compose_state) }}'
     pull:        '{{ compose_pull }}'
+    state:       '{{ compose_state }}'
+    recreate:    '{{ "always" if clusters_config_files.changed else compose_recreate }}'
